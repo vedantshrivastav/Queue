@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+
 const BusinessSchema = new mongoose.Schema(
     {
         owner : {type : mongoose.Schema.Types.ObjectId,ref : "User",required : true},
@@ -19,7 +20,7 @@ export const BusinessModel =  mongoose.model("Business",BusinessSchema)
 const UserSchema = new mongoose.Schema({
     name : {type : String,required : true},
     PhoneNumber : {type:Number,required : true},
-    role : {type : String,enum : ["User","Business"],default : "User"}
+    role : {type : String,enum : ["User","BusinessOwner"],default : "User"}
 })
 
 export const UserModel = mongoose.model("User",UserSchema)
